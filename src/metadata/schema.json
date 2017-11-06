@@ -1,0 +1,309 @@
+{
+    "package": "Strain",
+    "tagline": "Strain API",
+    "description": "The Strain API is a free resource containing information on a large variety of marijuana strains including their race, effects, and flavors. Use of this API is free and is encouraged for development purposes. The data does not belong to me and I am not at leisure to grant permission for commercial use.",
+    "image": "http:\/\/strains.evanbusse.com\/assets\/weed_cube%2090.png",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-Strain-Package",
+    "keywords": [
+        "API",
+        "Effects",
+        "Flavors",
+        "Strain"
+    ],
+    "accounts": {
+        "domain": "strains.evanbusse.com",
+        "credentials": [
+            "apiKey"
+        ]
+    },
+    "steps": [
+        "In http:\/\/strains.evanbusse.com\/ click `get a key` button",
+        "After completing registration you will be redirected to the home page where your api key will be displayed above the documentation"
+    ],
+    "blocks": [
+        {
+            "name": "getListAllEffects",
+            "description": "Get list all Effects.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/strainapi.evanbusse.com\/{$data['apiKey']}\/searchdata\/effects",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getListAllFlavors",
+            "description": "Get List all Flavors.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/strainapi.evanbusse.com\/{$data['apiKey']}\/searchdata\/flavors",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllStrains",
+            "description": "Get all strains.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/strainapi.evanbusse.com\/{$data['apiKey']}\/strains\/search\/all",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getStrainsByName",
+            "description": "Search for strains by Name.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "info": "Name of the Strain.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/strainapi.evanbusse.com\/{$data['apiKey']}\/strains\/search\/name\/{$data['name']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getStrainsByRace",
+            "description": "Search for strains by race (Available races: Sativa, Indica, and Hybrid).",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "race",
+                    "type": "Select",
+                    "options": [
+                        "Sativa",
+                        "Indica",
+                        "Hybrid"
+                    ],
+                    "info": "Select of race.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/strainapi.evanbusse.com\/{$data['apiKey']}\/strains\/search\/race\/{$data['race']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getStrainsByEffect",
+            "description": "Search for strains by effect.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "effect",
+                    "type": "String",
+                    "info": "Name of effect.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/strainapi.evanbusse.com\/{$data['apiKey']}\/strains\/search\/effect\/{$data['effect']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getStrainsByFlavor",
+            "description": "Search for strains by flavor.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "flavor",
+                    "type": "String",
+                    "info": "Name of flavor.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/strainapi.evanbusse.com\/{$data['apiKey']}\/strains\/search\/flavor\/{$data['flavor']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getEffectsByStrainId",
+            "description": "Search effects by strain id.Some of the search queries only return the strain with basic information and not effects or flavors. These additional queries use the strain id to return its corresponding effect or flavor data.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "strainId",
+                    "type": "String",
+                    "info": "Id of the strain.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/strainapi.evanbusse.com\/{$data['apiKey']}\/strains\/data\/effects\/{$data['strainId']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getFlavorsByStrainId",
+            "description": "Search flavors by strain id.Some of the search queries only return the strain with basic information and not effects or flavors. These additional queries use the strain id to return its corresponding effect or flavor data.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "Your API Key.",
+                    "required": true
+                },
+                {
+                    "name": "strainId",
+                    "type": "String",
+                    "info": "Id of the strain.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "http:\/\/strainapi.evanbusse.com\/{$data['apiKey']}\/strains\/data\/flavors\/{$data['strainId']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
